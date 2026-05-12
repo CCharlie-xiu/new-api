@@ -105,6 +105,64 @@
 
 ---
 
+## 📋 本地开发操作指南
+
+### 环境要求
+
+- **Go** 1.21+ | **Node.js** 18+ | **Bun** (推荐) | **Git**
+
+### 启动项目
+
+```bash
+# 1. 启动后端 (默认 :3000，使用 SQLite)
+go run main.go
+
+# 2. 启动 classic 前端 (Semi Design UI)
+cd web/classic && bun run dev
+
+# 3. 或启动 default 前端 (shadcn/ui + Tailwind)
+cd web/default && bun run dev
+```
+
+### 构建
+
+```bash
+# 后端
+go build -o new-api .
+
+# 前端
+cd web/classic && bun run build   # classic
+cd web/default && bun run build   # default
+```
+
+## 🔄 同步上游仓库
+
+本项目基于 [Calcium-Ion/new-api](https://github.com/Calcium-Ion/new-api)，可通过以下方式同步上游更新：
+
+```bash
+# 拉取上游最新代码
+git fetch upstream
+
+# 合并到本地 main 分支
+git checkout main
+git merge upstream/main
+
+# 推送合并后的代码到自己的仓库
+git push origin main
+```
+
+> **注意：** 如有冲突需手动解决后再提交。
+
+### Git Remote 配置
+
+```bash
+# 当前 remote 配置
+# origin    -> https://github.com/CCharlie-xiu/new-api.git  (自用仓库)
+# upstream  -> https://github.com/Calcium-Ion/new-api.git    (上游源仓库)
+```
+
+---
+
 ## 🚀 Quick Start
 
 ### Using Docker Compose (Recommended)
